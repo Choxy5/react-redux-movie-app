@@ -1,6 +1,6 @@
 import React from 'react';
 import './MovieCard.scss';
 
-export default function MovieCard() {
+export function MovieCard() {
   return <div>Movie Card</div>;
 }
