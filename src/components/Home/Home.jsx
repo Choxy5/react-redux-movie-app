@@ -6,7 +6,11 @@ import { MovieListing } from '../MovieListing/MovieListing';
 import movieApi from '../../common/API/movieApi';
 import { APIKey } from '../../common/API/MovieApiKey';
 
+import { useDispatch } from 'react-redux';
+import { addMovies } from '../../features/movies/movieSlice';
+
 export function Home() {
+  const dispatch = useDispatch();
   useEffect(() => {
     const movieText = 'Harry';
     async function fetchMovies() {
@@ -15,7 +19,7 @@ export function Home() {
         .catch((err) => {
           console.log(err);
         });
-      console.log('The response from API', response);
+      dispatch(addMovies(response.data));
     }
     fetchMovies();
   }, []);
